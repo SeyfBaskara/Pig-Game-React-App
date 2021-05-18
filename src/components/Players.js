@@ -4,18 +4,43 @@ import PlayerTwo from './PlayerTwo'
 import NewGame from './NewGame'
 import RollDice from './RollDice'
 import HoldScore from './HoldScore'
-import DiceImage from './DiceImage'
+import Dice from './Dice'
+import data from '../data.json'
 
 export class Players extends Component {
+   constructor(props) {
+      super(props)
+
+      this.state = {
+         scores: [0, 0],
+         currentScore: 0,
+         activePlayer: 0,
+         playing: true,
+         players: ['Player 1', 'Player 2'],
+         label: 'Current',
+         dices: data,
+      }
+   }
+
+   handleNewGame = () => {
+      console.log('New Game')
+   }
+   handleRollDice = () => {
+      console.log('Roll dice')
+   }
+   handleHoldScore = () => {
+      console.log('Hold score')
+   }
+
    render() {
       return (
          <main>
-            <PlayerOne />
-            <PlayerTwo />
-            <DiceImage />
-            <NewGame />
-            <RollDice />
-            <HoldScore />
+            <PlayerOne data={this.state} />
+            <PlayerTwo data={this.state} />
+            <Dice />
+            <NewGame handleNewGame={this.handleNewGame} />
+            <RollDice handleRollDice={this.handleRollDice} />
+            <HoldScore handleHoldScore={this.handleHoldScore} />
          </main>
       )
    }
