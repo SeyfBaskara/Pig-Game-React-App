@@ -5,7 +5,7 @@ import NewGame from './NewGame'
 import RollDice from './RollDice'
 import HoldScore from './HoldScore'
 import Dice from './Dice'
-import data from '../data.json'
+import { data } from '../data'
 
 export class Players extends Component {
    constructor(props) {
@@ -15,6 +15,7 @@ export class Players extends Component {
          scores: [0, 0],
          currentScore: 0,
          activePlayer: 0,
+         key: 0,
          playing: true,
          players: ['Player 1', 'Player 2'],
          label: 'Current',
@@ -26,7 +27,12 @@ export class Players extends Component {
       console.log('New Game')
    }
    handleRollDice = () => {
-      console.log('Roll dice')
+      this.setState(() => {
+         const dice = Math.trunc(Math.random() * 6 + 1)
+         return {
+            key: dice,
+         }
+      })
    }
    handleHoldScore = () => {
       console.log('Hold score')
@@ -37,7 +43,7 @@ export class Players extends Component {
          <main>
             <PlayerOne data={this.state} />
             <PlayerTwo data={this.state} />
-            <Dice />
+            <Dice data={this.state} />
             <NewGame handleNewGame={this.handleNewGame} />
             <RollDice handleRollDice={this.handleRollDice} />
             <HoldScore handleHoldScore={this.handleHoldScore} />
