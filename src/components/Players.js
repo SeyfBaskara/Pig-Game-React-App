@@ -17,25 +17,51 @@ export class Players extends Component {
          activePlayer: 0,
          key: 0,
          playing: true,
-         players: ['Player 1', 'Player 2'],
+         players: {
+            player_1: 'Player 1',
+            player_2: 'Player 2',
+         },
          label: 'Current',
          dices: data,
       }
    }
-
    handleNewGame = () => {
-      console.log('New Game')
+      this.setState({ key: 0, currentScore: 0, scores: [0, 0], playing: true })
    }
    handleRollDice = () => {
-      this.setState(() => {
-         const dice = Math.trunc(Math.random() * 6 + 1)
-         return {
-            key: dice,
-         }
-      })
+      if (this.state.playing) {
+         this.setState((prevState) => {
+            const dice = Math.trunc(Math.random() * 6 + 1)
+            const toggle = dice === 1 ? 0 : 1
+            return {
+               key: dice,
+               currentScore: dice === 1 ? 0 : prevState.currentScore + dice,
+               activePlayer: prevState.activePlayer === toggle ? 1 : 0,
+            }
+         })
+      }
    }
    handleHoldScore = () => {
-      console.log('Hold score')
+      if (this.state.playing) {
+         this.setState((prevState) => {
+            if (prevState.activePlayer === 0) {
+               return {
+                  scores: [(prevState.scores[0] += prevState.currentScore), prevState.scores[1]],
+                  currentScore: 0,
+                  activePlayer: 1,
+                  playing: prevState.scores[0] >= 20 ? false : prevState.playing,
+               }
+            }
+            if (prevState.activePlayer === 1) {
+               return {
+                  scores: [prevState.scores[0], (prevState.scores[1] += prevState.currentScore)],
+                  currentScore: 0,
+                  activePlayer: 0,
+                  playing: prevState.scores[1] >= 20 ? false : prevState.playing,
+               }
+            }
+         })
+      }
    }
 
    render() {

@@ -8,7 +8,7 @@ export default function Dice(props) {
             .map((dice) => {
                return (
                   <img
-                     src={dice.id === props.data.key ? dice.dice : null} //FIXME only object should return
+                     src={dice.id === props.data.key ? dice.dice : null}
                      key={dice.id}
                      alt="playing dice"
                      className="dice"
@@ -16,6 +16,5 @@ export default function Dice(props) {
                )
             })}
       </>
-      // <img src={dice1} alt="Playing dice" className="dice" />
    )
 }
