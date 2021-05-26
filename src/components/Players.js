@@ -14,6 +14,7 @@ export class Players extends Component {
       this.state = {
          scores: [0, 0],
          currentScore: 0,
+         finalScore: 50,
          activePlayer: 0,
          key: 0,
          playing: true,
@@ -26,7 +27,13 @@ export class Players extends Component {
       }
    }
    handleNewGame = () => {
-      this.setState({ key: 0, currentScore: 0, scores: [0, 0], playing: true })
+      this.setState({
+         key: 0,
+         currentScore: 0,
+         scores: [0, 0],
+         playing: true,
+         activePlayer: 0,
+      })
    }
    handleRollDice = () => {
       if (this.state.playing) {
@@ -44,12 +51,13 @@ export class Players extends Component {
    handleHoldScore = () => {
       if (this.state.playing) {
          this.setState((prevState) => {
+            const score = prevState.finalScore
             if (prevState.activePlayer === 0) {
                return {
                   scores: [(prevState.scores[0] += prevState.currentScore), prevState.scores[1]],
                   currentScore: 0,
                   activePlayer: 1,
-                  playing: prevState.scores[0] >= 20 ? false : prevState.playing,
+                  playing: prevState.scores[0] >= score ? false : prevState.playing,
                }
             }
             if (prevState.activePlayer === 1) {
@@ -57,7 +65,7 @@ export class Players extends Component {
                   scores: [prevState.scores[0], (prevState.scores[1] += prevState.currentScore)],
                   currentScore: 0,
                   activePlayer: 0,
-                  playing: prevState.scores[1] >= 20 ? false : prevState.playing,
+                  playing: prevState.scores[1] >= score ? false : prevState.playing,
                }
             }
          })
