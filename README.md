@@ -1,3 +1,13 @@
+# Pig-Game-React-App
+
+The pig game is simple RollDice between two players.
+
+-  By clicking RollDice-button, number adds in current-score. if dice === 1, player switched and current-score set in 0
+-  By clicking a Hold-button, current-scores add in score. if a player score === 50, game ends and player win!
+-  NewGame-button restart the game.
+
+The original project written in vanila javascript. This conversion of project in React
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
