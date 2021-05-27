@@ -6,9 +6,9 @@ export default function PlayerTwo(props) {
       <section
          className={`player 
          ${activePlayer === 1 && 'player--active'}
-         ${scores[1] > finalScore && 'player--winner'}`}
+         ${scores[1] >= finalScore && 'player--winner'}`}
       >
-         <h2 className="name">{players.player_2}</h2>
+         <h2 className="name">{players[1]}</h2>
          <p className="score">{scores[1]}</p>
          <div className="current">
             <p className="current-label">{label}</p>
