@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Pig-Game-React-App/static/css/main.619fab11.chunk.css",
+    "main.js": "/Pig-Game-React-App/static/js/main.ab185596.chunk.js",
+    "main.js.map": "/Pig-Game-React-App/static/js/main.ab185596.chunk.js.map",
+    "runtime-main.js": "/Pig-Game-React-App/static/js/runtime-main.8e8ef8cd.js",
+    "runtime-main.js.map": "/Pig-Game-React-App/static/js/runtime-main.8e8ef8cd.js.map",
+    "static/js/2.16ac3350.chunk.js": "/Pig-Game-React-App/static/js/2.16ac3350.chunk.js",
+    "static/js/2.16ac3350.chunk.js.map": "/Pig-Game-React-App/static/js/2.16ac3350.chunk.js.map",
+    "static/js/3.514e3c9a.chunk.js": "/Pig-Game-React-App/static/js/3.514e3c9a.chunk.js",
+    "static/js/3.514e3c9a.chunk.js.map": "/Pig-Game-React-App/static/js/3.514e3c9a.chunk.js.map",
+    "index.html": "/Pig-Game-React-App/index.html",
+    "static/css/main.619fab11.chunk.css.map": "/Pig-Game-React-App/static/css/main.619fab11.chunk.css.map",
+    "static/js/2.16ac3350.chunk.js.LICENSE.txt": "/Pig-Game-React-App/static/js/2.16ac3350.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8e8ef8cd.js",
+    "static/js/2.16ac3350.chunk.js",
+    "static/css/main.619fab11.chunk.css",
+    "static/js/main.ab185596.chunk.js"
+  ]
+}
